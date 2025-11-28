@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termékgaléria</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Termékgaléria</h1>
+    </header>
+
+    <main>
+        <div class="content-wrapper">
+            
+            <aside class="cart-sidebar" id="cart-sidebar">
+                <h2><i class="fas fa-shopping-cart"></i> Bevásárlókosár</h2>
+                <div id="cart-items" class="cart-items">
+                    <p class="empty-cart-message">A kosár üres.</p>
+                </div>
+                <div class="cart-summary">
+                    <p>Összesen:</p>
+                    <p class="cart-total" id="cart-total">0 Ft</p>
+                </div>
+                
+            </aside>
+            
+            <div class="products-section">
+                
+                <div class="controls-bar">
+                    
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Keresés terméknév alapján..." class="search-input">
+                        <button id="search-button" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="sort-container">
+                        <span>Rendezés</span>
+                        <button class="sort-button" id="sort-toggle">
+                            <i class="fas fa-sliders-h"></i>
+                        </button>
+                        <div class="sort-dropdown" id="sort-dropdown">
+                            <a href="#" data-sort="price-asc">Ár (növekvő)</a>
+                            <a href="#" data-sort="price-desc">Ár (csökkenő)</a>
+                            <a href="#" data-sort="name-asc">Név (A-Z)</a>
+                            <a href="#" data-sort="name-desc">Név (Z-A)</a>
+                        </div>
+                    </div>
+
+                    <div class="filter-container">
+                        <span>Szűrés</span>
+                        <button class="filter-button" id="filter-toggle">
+                            <i class="fas fa-filter"></i>
+                        </button>
+                        <div class="filter-dropdown" id="filter-dropdown">
+                            <label><input type="checkbox" name="type" value="gyumolcs"> Gyümölcs</label>
+                            <label><input type="checkbox" name="type" value="zoldseg"> Zöldség</label>
+                            <label><input type="checkbox" name="type" value="hus"> Hús</label>
+                            <label><input type="checkbox" name="type" value="elektronika"> Elektronika</label>
+                            <label><input type="checkbox" name="type" value="nasi"> Nasi</label>
+                            <button id="apply-filter">Szűrés alkalmazása</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="product-grid">
+                    <div class="product-card" data-type="zoldseg" data-price="450" data-name="Paradicsom (kg)" data-id="v1">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.z0EgHXREvYXB0T73A3entwHaD4%3Fpid%3DApi&f=1&ipt=44fe18d8a6ad3caf6021f75fc9c4fa3192b4d9981f83a92dbfecc908d22186eb&ipo=images" alt="Paradicsom">
+    </div>
+    <h3 class="product-name">Paradicsom</h3>
+    <p class="product-type">Típus: Zöldség</p>
+    <p class="product-price">450 Ft</p>
+    <button class="add-to-cart" data-product-id="v1">Kosárba</button> 
+</div>
+<div class="product-card" data-type="gyumolcs" data-price="780" data-name="Alma (Golden, kg)" data-id="v2">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mos.cms.futurecdn.net%2FsQQa7GR3GSfc4Vp63grzLe.jpg&f=1&nofb=1&ipt=51d513d0a3f1b7d0b81549d573006daa17f76e35440af80d7d29584685cff2c5" alt="Golden Alma">
+    </div>
+    <h3 class="product-name">Alma (Golden)</h3>
+    <p class="product-type">Típus: Gyümölcs</p>
+    <p class="product-price">780 Ft</p>
+    <button class="add-to-cart" data-product-id="v2">Kosárba</button> 
+</div>
+<div class="product-card" data-type="zoldseg" data-price="250" data-name="Fejes saláta (db)" data-id="v3">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.agroinform.hu%2Fdata%2Fcikk%2F5%2F8575%2Fcikk_58575%2Ffejes_salata_kozeli.jpg&f=1&nofb=1&ipt=f26f5f4ae471f0b7834dbd034599e59794dc04601bbc1407d3663708c5b665c0" alt="Fejes saláta">
+    </div>
+    <h3 class="product-name">Fejes saláta</h3>
+    <p class="product-type">Típus: Zöldség</p>
+    <p class="product-price">250 Ft</p>
+    <button class="add-to-cart" data-product-id="v3">Kosárba</button> 
+</div>
+<div class="product-card" data-type="gyumolcs" data-price="1200" data-name="Banán (kg)" data-id="v4">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpilulka.s3-central.vshosting.cloud%2Fpilulka-cz%2Ffiles%2Fimages%2F2024-07%2Fmd_9a4276935e47498d6ff3f94537114043.jpg&f=1&nofb=1&ipt=56d716d84115d594950e6fc2252e3f27d9d9a597bb42e303eb90c03b639097a3" alt="Banán">
+    </div>
+    <h3 class="product-name">Banán</h3>
+    <p class="product-type">Típus: Gyümölcs</p>
+    <p class="product-price">1 200 Ft</p>
+    <button class="add-to-cart" data-product-id="v4">Kosárba</button> 
+</div>
+<div class="product-card" data-type="zoldseg" data-price="550" data-name="Sárgarépa (csomag)" data-id="v5">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnepgyogyaszat.com%2Fwp-content%2Fuploads%2F2007%2F04%2Fsargarepa_1200_630.jpg&f=1&nofb=1&ipt=01fcdd0442ff367ad24312b0b513b5a664f39afd17b872d3593bdae26e683da6" alt="Sárgarépa">
+    </div>
+    <h3 class="product-name">Sárgarépa</h3>
+    <p class="product-type">Típus: Zöldség</p>
+    <p class="product-price">550 Ft</p>
+    <button class="add-to-cart" data-product-id="v5">Kosárba</button> 
+</div>
+<div class="product-card" data-type="gyumolcs" data-price="900" data-name="Szőlő (piros, kg)" data-id="v6">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.lidl.hu%2Fstatic%2Fassets%2Fpiros-szolo-19141.jpg&f=1&nofb=1&ipt=cbbe08e9b7c5823a3fbe46a969bf51865f52cde5bc39a06fa0632f5c6abe9e19" alt="Piros Szőlő">
+    </div>
+    <h3 class="product-name">Szőlő</h3>
+    <p class="product-type">Típus: Gyümölcs</p>
+    <p class="product-price">900 Ft</p>
+    <button class="add-to-cart" data-product-id="v6">Kosárba</button> 
+</div>
+<div class="product-card" data-type="zoldseg" data-price="320" data-name="Burgonya (kg)" data-id="v7">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage-api.nosalty.hu%2Fnosalty%2Fimages%2Fingredients%2FPG%2FTu%2FhiYtJEC8PLff3HLiuOaVWIqf9CpSAVTOqoEhRYHa.jpeg%3Fw%3D1560%26h%3D1080%26fit%3Dcrop%26s%3D46a05d9849d6498f0ad071f13d7389b6&f=1&nofb=1&ipt=d1f6757bf1b7134378bb6906c9c7a8ea202da72fdfada32432b25b3741475a85" alt="Burgonya">
+    </div>
+    <h3 class="product-name">Burgonya</h3>
+    <p class="product-type">Típus: Zöldség</p>
+    <p class="product-price">320 Ft</p>
+    <button class="add-to-cart" data-product-id="v7">Kosárba</button> 
+</div>
+<div class="product-card" data-type="gyumolcs" data-price="1500" data-name="Narancs (kg)" data-id="v8">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffodorfruct.hu%2Fwp-content%2Fuploads%2F2020%2F03%2FNarancs-pultos.jpg&f=1&nofb=1&ipt=cb395aabf378132a9ed2fc3f822baf8ed3d26c54d5d608b0cfc727eb641bf5b4" alt="Narancs">
+    </div>
+    <h3 class="product-name">Narancs</h3>
+    <p class="product-type">Típus: Gyümölcs</p>
+    <p class="product-price">1 500 Ft</p>
+    <button class="add-to-cart" data-product-id="v8">Kosárba</button> 
+</div>
+<div class="product-card" data-type="zoldseg" data-price="410" data-name="Kígyóuborka (db)" data-id="v9">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mindmegette.hu%2F2024%2F07%2F1jF4-KHAaUO32eVYadvstKn0tiy-8woGPRlmALiJNHE%2Ffill%2F0%2F0%2Fno%2F1%2FaHR0cHM6Ly9jbXNjZG4uYXBwLmNvbnRlbnQucHJpdmF0ZS9jb250ZW50LzA5MmJhMzQ0YzMzMzRkNTliZmQ2NTA4YTA1OWQ0MTlm.webp&f=1&nofb=1&ipt=f82d601101d2ab364ebf36c7a5457f8841005334e61058805ffb0c063c89c184" alt="Kígyóuborka">
+    </div>
+    <h3 class="product-name">Kígyóuborka</h3>
+    <p class="product-type">Típus: Zöldség</p>
+    <p class="product-price">410 Ft</p>
+    <button class="add-to-cart" data-product-id="v9">Kosárba</button> 
+</div>
+<div class="product-card" data-type="gyumolcs" data-price="850" data-name="Citrom (kg)" data-id="v10">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdipont.hu%2Fwp-content%2Fuploads%2Fcitrom-1-1.jpg&f=1&nofb=1&ipt=9ed5fdf872e86a2b2fc9f355c18bbdb99da5cfe9fdc0ff990ba624af1f6cb67a" alt="Citrom">
+    </div>
+    <h3 class="product-name">Citrom</h3>
+    <p class="product-type">Típus: Gyümölcs</p>
+    <p class="product-price">850 Ft</p>
+    <button class="add-to-cart" data-product-id="v10">Kosárba</button> 
+</div>
+
+<div class="product-card" data-type="hus" data-price="1890" data-name="Csirkemell filé (kg)" data-id="h1">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fravigasztro.hu%2Fwp-content%2Fuploads%2F2020%2F04%2Fcsirkemellfile.jpg&f=1&nofb=1&ipt=762bc46193fc55cd2c9e42e0b57b446060fff96b24f663339984b660288c58d4" alt="Csirkemell filé">
+    </div>
+    <h3 class="product-name">Csirkemell filé</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">1 890 Ft</p>
+    <button class="add-to-cart" data-product-id="h1">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="3200" data-name="Sertéskaraj (kg)" data-id="h2">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnlc.hu%2Fuploads%2F2023%2F09%2Fistetiana-getty-images-1464809833-1024x683.jpg&f=1&nofb=1&ipt=42bda79dc8e21aaf7998d18a321ac38c8d6c77d064304bec77ec484b2ef319c0" alt="Sertéskaraj">
+    </div>
+    <h3 class="product-name">Sertéskaraj</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">3 200 Ft</p>
+    <button class="add-to-cart" data-product-id="h2">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="1450" data-name="Füstölt kolbász (250g)" data-id="h3">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fchefmarket.hu%2Fpublic%2Fupload%2Fproduct_image%2F12237%2F12237513%2F24245%2F1141320131.jpg&f=1&nofb=1&ipt=57374f1cbb96d50d3587ae1cca57175b397445c4f4e6348b6894f09343a7e42e" alt="Füstölt kolbász">
+    </div>
+    <h3 class="product-name">Füstölt kolbász</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">1 450 Ft</p>
+    <button class="add-to-cart" data-product-id="h3">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="2990" data-name="Marha darált hús (kg)" data-id="h4">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkemenytojas.com%2Fwp-content%2Fuploads%2Fdaralt-marha-nyak-480x270.jpg&f=1&nofb=1&ipt=20f1bab3c59a85025c55953a319579c5a168b0517ef2c4b02b9e487f23672908" alt="Marha darált hús">
+    </div>
+    <h3 class="product-name">Marha darált hús</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">2 990 Ft</p>
+    <button class="add-to-cart" data-product-id="h4">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="890" data-name="VirslI (sajtos, 500g)" data-id="h5">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.femcafe.hu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Ffb_landscape%2Fpublic%2Fimages2017%2Fcikkek%2Fvirsli_123rf_980x480_1.jpg%3Fitok%3DY5bH0gZZ&f=1&nofb=1&ipt=e22864dbc84e87b5979ee3e4699921e2c9975d3bb4bd8879a7e3b98b9e3341f6" alt="VirslI">
+    </div>
+    <h3 class="product-name">VirslI</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">890 Ft</p>
+    <button class="add-to-cart" data-product-id="h5">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="2100" data-name="Pulykamell (kg)" data-id="h6">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fforrolevegosfritoz.com%2Fwp-content%2Fuploads%2F2023%2F10%2Fpulykamell-szeletelese-1024x577.jpeg&f=1&nofb=1&ipt=0b31284b1fc50ad26af5a39fd6ab0e4428eca2c3da750df1d2814dfa2557d1da" alt="Pulykamell">
+    </div>
+    <h3 class="product-name">Pulykamell</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">2 100 Ft</p>
+    <button class="add-to-cart" data-product-id="h6">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="3500" data-name="Bacon szeletek (200g)" data-id="h7">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fforrolevegosfritoz.com%2Fwp-content%2Fuploads%2F2024%2F02%2Fairfryer-bacon-3.jpg&f=1&nofb=1&ipt=1822af15bf927bb96250dc04d5128d9add23278c5be8fcdd67599de0aced3ac0" alt="Bacon szeletek">
+    </div>
+    <h3 class="product-name">Bacon</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">3 500 Ft</p>
+    <button class="add-to-cart" data-product-id="h7">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="1990" data-name="Sertéshús (lapocka, kg)" data-id="h8">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fketkakas-husbolt.hu%2Fimg%2F93225%2Fkk_0984%2F700x700%2Fkk_0984.jpg%3Ftime%3D1662432165&f=1&nofb=1&ipt=67ace2afe39cba54b39422f5012d3b336a9f34d8afd41bc5789e6df285d9c942" alt="Sertés lapocka">
+    </div>
+    <h3 class="product-name">Sertés lapocka</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">1 990 Ft</p>
+    <button class="add-to-cart" data-product-id="h8">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="1100" data-name="Párizsi (csomag)" data-id="h9">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.mindmegette.hu%2F2024%2F07%2FgbLBTCDCbLZkZMLjfN8c5WG9X4fK0cnllRPiZGUVrEo%2Ffill%2F0%2F0%2Fno%2F1%2FaHR0cHM6Ly9jbXNjZG4uYXBwLmNvbnRlbnQucHJpdmF0ZS9jb250ZW50LzJlZDU0NDBmZTRlZDQ5ZTJiZGM0MmE5ZTQxNGQ3ZDBl.jpg&f=1&nofb=1&ipt=2323615349edc7166e08ff562fe8b215ea325aa85749fedabd21dc0499468cbc" alt="Párizsi">
+    </div>
+    <h3 class="product-name">Párizsi</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">1 100 Ft</p>
+    <button class="add-to-cart" data-product-id="h9">Kosárba</button> 
+</div>
+<div class="product-card" data-type="hus" data-price="4500" data-name="Fagyasztott lazac filé (400g)" data-id="h10">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhplaza.hu%2Fdynamic%2Fmedia%2Ftn_1184_porcios_lazac.jpg&f=1&nofb=1&ipt=562c7a9273535db8bcf75c818f6e4d6cf8b41f6e3d7536d8bb6cc52bde952fe0" alt="Fagyasztott lazac filé">
+    </div>
+    <h3 class="product-name">Lazac filé</h3>
+    <p class="product-type">Típus: Hús</p>
+    <p class="product-price">4 500 Ft</p>
+    <button class="add-to-cart" data-product-id="h10">Kosárba</button> 
+</div>
+
+<div class="product-card" data-type="elektronika" data-price="180000" data-name="Laptop (14 inch)" data-id="e1">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flaptopmedia.com%2Fwp-content%2Fuploads%2F2022%2F11%2F3-18.jpg&f=1&nofb=1&ipt=46e3909651effdc83b28b015d60116ec4910a4b8cc43fc2200bcc22baf6ea12b" alt="Laptop">
+    </div>
+    <h3 class="product-name">Laptop</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">180 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e1">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="45000" data-name="Vezeték nélküli fülhallgató" data-id="e2">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs13emagst.akamaized.net%2Fproducts%2F49015%2F49014011%2Fimages%2Fres_0227254bfe981dd96b97a600b5679cce.jpg&f=1&nofb=1&ipt=13b67c515c90ba67bba2e8acf98428dd9e9480f63f530a3da8670b61dfe9ff8a" alt="Vezeték nélküli fülhallgató">
+    </div>
+    <h3 class="product-name">Vezeték nélküli fülhallgató</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">45 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e2">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="8500" data-name="USB Pendrive (128 GB)" data-id="e3">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngplay.com%2Fwp-content%2Fuploads%2F8%2FUSB-Pen-Drive-PNG-Clipart-Background.png&f=1&nofb=1&ipt=ab032c521b7f9a2ea62222d93dadeea11bb638af47565ccc66cd5e80735b1b39" alt="USB Pendrive (128 GB)">
+    </div>
+    <h3 class="product-name">Pendrive (128 GB)</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">8 500 Ft</p>
+    <button class="add-to-cart" data-product-id="e3">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="12000" data-name="Vezeték nélküli egér" data-id="e4">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs13emagst.akamaized.net%2Fproducts%2F16162%2F16161664%2Fimages%2Fres_a29c4a4c1ad450eeae93d61715f2473a.jpg&f=1&nofb=1&ipt=fb56ef01bf68ba656c25acb04f8b0771096687c8e86ff721f9cacc89be62ace0" alt="Vezeték nélküli egér">
+    </div>
+    <h3 class="product-name">Vezeték nélküli egér</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">12 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e4">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="95000" data-name="Okosóra (Fitness)" data-id="e5">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs13emagst.akamaized.net%2Fproducts%2F48591%2F48590531%2Fimages%2Fres_bee98052562436683e803d722704e541.jpg&f=1&nofb=1&ipt=3c9f7dc0822e807d6d3ee017d1e5e8e22b2aece42056e2ba2d4714308dee888b" alt="Okosóra">
+    </div>
+    <h3 class="product-name">Okosóra</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">95 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e5">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="21000" data-name="Bluetooth hangszóró" data-id="e6">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.euronics.hu%2Fproduct_images%2F800x600%2Fresize%2F2_avb6f6zg.jpg%3Fv%3D1&f=1&nofb=1&ipt=9d6b9f3de9a48bb39103ff05484b36f49a14a9b5334ff3ca30cdf8749f23f098" alt="Bluetooth hangszóró">
+    </div>
+    <h3 class="product-name">Bluetooth hangszóró</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">21 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e6">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="18000" data-name="Power Bank (20000mAh)" data-id="e7">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71tsTZoDenL._AC_.jpg&f=1&nofb=1&ipt=9975deb34a1759bb1204ba854cb99a3acdf7c1f71dc7756fa97625257dd75d00" alt="Power Bank (20000mAh)">
+    </div>
+    <h3 class="product-name">Power Bank</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">18 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e7">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="350000" data-name="Okostelefon (középkategória)" data-id="e8">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.euronics.hu%2Fproduct_images%2F800x600%2Fresize%2Fk2_1ascxn9h.png%3Fv%3D1&f=1&nofb=1&ipt=c877e2f597c08d38eddf7502d60f56f722b7c6af5735b547227992e98d34c031" alt="Okostelefon">
+    </div>
+    <h3 class="product-name">Okostelefon</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">350 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e8">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="42000" data-name="Gaming billentyűzet" data-id="e9">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.euronics.hu%2Fproduct_images%2F800x600%2Fresize%2F2_avb6f6zg.jpg%3Fv%3D1&f=1&nofb=1&ipt=6e5a055af4c1559517eab200cd802c62723ee6f389a3b80c72536917a2a992c4" alt="Gaming billentyűzet">
+    </div>
+    <h3 class="product-name">Gaming billentyűzet</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">42 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e9">Kosárba</button> 
+</div>
+<div class="product-card" data-type="elektronika" data-price="120000" data-name="Monitor (27 inch)" data-id="e10">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F711U7Cqp-LL._AC_SL1500_.jpg&f=1&nofb=1&ipt=288049c0c02076bef38a44a31347fe42f2cbc9baef5c0e47e76aa1e35cca1fff" alt="Monitor (27 inch)">
+    </div>
+    <h3 class="product-name">Monitor (27")</h3>
+    <p class="product-type">Típus: Elektronika</p>
+    <p class="product-price">120 000 Ft</p>
+    <button class="add-to-cart" data-product-id="e10">Kosárba</button> 
+</div>
+
+<div class="product-card" data-type="nasi" data-price="590" data-name="Tejcsokoládé (100g)" data-id="n1">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpi.nice-cdn.com%2Fupload%2Fimage%2Fproduct%2Flarge%2Fdefault%2Fmilka-alpesi-tejcsokolade-100-g-1188918-hu.png&f=1&nofb=1&ipt=00155fc46939c1eebcbf367baaafa43c586bb07803d5faae18e0114182bf531c" alt="Tejcsokoládé">
+    </div>
+    <h3 class="product-name">Tejcsokoládé</h3>
+    <p class="product-type">Típus: Nasi</p>
+    <p class="product-price">590 Ft</p>
+    <button class="add-to-cart" data-product-id="n1">Kosárba</button> 
+</div>
+<div class="product-card" data-type="nasi" data-price="750" data-name="Sós chips (nagy csomag)" data-id="n2">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.blog.hu%2Fma%2Fmaradokapenzemnel%2Fimage%2Fimg_8984_snack_day.jpg&f=1&nofb=1&ipt=2bbd03f5acb13efc0728e1d3adf089ac9f927fc4559539ccd970932c216f2189" alt="Sós chips">
+    </div>
+    <h3 class="product-name">Sós chips</h3>
+    <p class="product-type">Típus: Nasi</p>
+    <p class="product-price">750 Ft</p>
+    <button class="add-to-cart" data-product-id="n2">Kosárba</button> 
+</div>
+<div class="product-card" data-type="nasi" data-price="1200" data-name="Mogyoró (pörkölt, 200g)" data-id="n3">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.goldentree.hu%2Fstorage%2Frecipes%2Fhu%2FPorkolt-mogyoro.jpg&f=1&nofb=1&ipt=c332db0a0285a045595444be879c437d8a08306f448c3d8ce45311af71bf24f6" alt="Pörkölt mogyoró">
+    </div>
+    <h3 class="product-name">Pörkölt mogyoró</h3>
+    <p class="product-type">Típus: Nasi</p>
+    <p class="product-price">1 200 Ft</p>
+    <button class="add-to-cart" data-product-id="n3">Kosárba</button> 
+</div>
+<div class="product-card" data-type="nasi" data-price="490" data-name="Keksz (csokis)" data-id="n4">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Folcso-receptek.hu%2Fwp-content%2Fuploads%2F2023%2F03%2Famerikai-csokis-keksz-800x530.jpg&f=1&nofb=1&ipt=561f967d9ec141b33100808108b3bc3324cb6f40e340a068c95d2640ab060f1e" alt="Csokis keksz">
+    </div>
+    <h3 class="product-name">Csokis keksz</h3>
+    <p class="product-type">Típus: Nasi</p>
+    <p class="product-price">490 Ft</p>
+    <button class="add-to-cart" data-product-id="n4">Kosárba</button> 
+</div>
+<div class="product-card" data-type="nasi" data-price="620" data-name="Gumicukor (zacskós)" data-id="n5">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ferdekessegek.com%2Fimages%2Fcache%2F308757_473019_1702812187_cropped_hazi-gumicukor_1.jpg&f=1&nofb=1&ipt=ef17d635317bd5390d62a2d9a35a7a371ac14fcaeb0e21b2f230d5221efff4fe" alt="Gumicukor">
+    </div>
+    <h3 class="product-name">Gumicukor</h3>
+    <p class="product-type">Típus: Nasi</p>
+    <p class="product-price">620 Ft</p>
+    <button class="add-to-cart" data-product-id="n5">Kosárba</button> 
+</div>
+
+<div class="product-card" data-type="ital" data-price="350" data-name="Ásványvíz (szénsavas, 1.5L)" data-id="i1">
+    <div class="product-image-placeholder">
+        <img src="LINK_ÁSVÁNYVÍZ_KÉP_URL" alt="Ásványvíz">
+    </div>
+    <h3 class="product-name">Ásványvíz</h3>
+    <p class="product-type">Típus: Ital</p>
+    <p class="product-price">350 Ft</p>
+    <button class="add-to-cart" data-product-id="i1">Kosárba</button> 
+</div>
+<div class="product-card" data-type="ital" data-price="490" data-name="Kóla (0.5L)" data-id="i2">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnlc.p3k.hu%2Fuploads%2F2021%2F06%2Fpexels-karolina-grabowska-4389666.jpg&f=1&nofb=1&ipt=d6b96b3cbdfb855fc28184d0dd5be8da6a9d2d2302df750bfb4d11a236a2e819" alt="Kóla (0.5L)">
+    </div>
+    <h3 class="product-name">Kóla (0.5L)</h3>
+    <p class="product-type">Típus: Ital</p>
+    <p class="product-price">490 Ft</p>
+    <button class="add-to-cart" data-product-id="i2">Kosárba</button> 
+</div>
+<div class="product-card" data-type="ital" data-price="990" data-name="Narancslé (100%, 1L)" data-id="i3">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fm.blog.hu%2Fma%2Fmaradokapenzemnel%2Fimage%2Fsolevita_img_2069.JPG&f=1&nofb=1&ipt=fa9b9ce818f8ec9a6024842de22c2349bb3e46c7b942a021adb6eaf2ef3af50c" alt="Narancslé (1L)">
+    </div>
+    <h3 class="product-name">Narancslé</h3>
+    <p class="product-type">Típus: Ital</p>
+    <p class="product-price">990 Ft</p>
+    <button class="add-to-cart" data-product-id="i3">Kosárba</button> 
+</div>
+<div class="product-card" data-type="ital" data-price="250" data-name="Energiaital (0.33L)" data-id="i4">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffacts.net%2Fwp-content%2Fuploads%2F2023%2F05%2Fwhite-monster-energy-drink-woods-background-.jpg&f=1&nofb=1&ipt=5a3695a45dc7fd24d85f6cd421ab4cb7d11ea480d84acc94c5ce8ad25e770532" alt="Energiaital">
+    </div>
+    <h3 class="product-name">Energiaital</h3>
+    <p class="product-type">Típus: Ital</p>
+    <p class="product-price">250 Ft</p>
+    <button class="add-to-cart" data-product-id="i4">Kosárba</button> 
+</div>
+<div class="product-card" data-type="ital" data-price="550" data-name="Tej (UHT, 1L)" data-id="i5">
+    <div class="product-image-placeholder">
+        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffarmvilag.hu%2Fwp-content%2Fuploads%2F2025%2F04%2Ftej-2.jpg&f=1&nofb=1&ipt=0ab09d7c7c7677e8947b060c29deb3055a3f524fef183587125fb927bbac4ec2" alt="Tej (1L)">
+    </div>
+    <h3 class="product-name">Tej (1L)</h3>
+    <p class="product-type">Típus: Ital</p>
+    <p class="product-price">550 Ft</p>
+    <button class="add-to-cart" data-product-id="i5">Kosárba</button> 
+</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Termékgaléria</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
